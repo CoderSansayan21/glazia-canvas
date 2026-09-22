@@ -3,7 +3,7 @@ node_modules/
 
 # Environment variables (NEVER commit real secrets)
 .env
-.env.local
+.env.example
 .env.*.local
 
 # Logs
