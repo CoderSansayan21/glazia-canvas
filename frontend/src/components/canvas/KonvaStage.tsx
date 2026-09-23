@@ -14,7 +14,7 @@ interface KonvaStageProps {
   onSelect: (id: string | null) => void;
   onElementChange: (updated: CanvasElement) => void; // live update, no history commit
   onElementCommit: (updated: CanvasElement) => void;  // commits to undo/redo history
-  stageRef: React.RefObject<Konva.Stage>;
+  stageRef: React.RefObject<Konva.Stage | null>;
   width?: number;
   height?: number;
 }
@@ -43,7 +43,7 @@ export default function KonvaStage({
   }, [selectedId, elements]);
 
   // Clicking empty stage area deselects
-  const handleStageMouseDown = (e: Konva.KonvaEventObject<MouseEvent>) => {
+  const handleStageMouseDown = (e: Konva.KonvaEventObject<MouseEvent | TouchEvent>) => {
     if (e.target === e.target.getStage()) {
       onSelect(null);
     }
