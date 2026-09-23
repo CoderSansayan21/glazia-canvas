@@ -24,6 +24,7 @@ export default function KonvaStage({
   layerOrder,
   selectedId,
   onSelect,
+  onElementChange,
   onElementCommit,
   stageRef,
   width = 900,
@@ -69,6 +70,7 @@ export default function KonvaStage({
             element={element}
             isSelected={element.id === selectedId}
             onSelect={() => onSelect(element.id)}
+            onChange={onElementCommit}
             shapeRef={(node) => {
               if (node) shapeRefs.current[element.id] = node;
               else delete shapeRefs.current[element.id];
