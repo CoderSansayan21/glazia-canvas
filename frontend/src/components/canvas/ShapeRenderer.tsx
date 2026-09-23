@@ -26,7 +26,8 @@ export default function ShapeRenderer({
 }: ShapeRendererProps) {
   const [editing, setEditing] = useState(false);
 
-  const startTextEdit = (e: Konva.KonvaEventObject<MouseEvent>) => {
+ const startTextEdit = (
+  e: Konva.KonvaEventObject<MouseEvent | TouchEvent>) => {
     if (element.type !== 'text') return;
 
     e.cancelBubble = true;
